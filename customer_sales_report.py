@@ -23,4 +23,3 @@ salesreport.close()
     
     
 
-##for the last line you need a write statement outside of the for loop

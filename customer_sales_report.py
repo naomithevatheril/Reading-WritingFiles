@@ -1,16 +1,26 @@
 #notes in class:
-""" 
-custid= '250'
+import csv
+
+custid= 250
 total= 0
 
-for rec in csv_file:
-    if custid == rec[0]:
-        total+= rec[3]+rec[4]+rec[5]
+sales = open('sales.csv', 'r')
+salesreader= csv.reader(sales)
+next(salesreader)
+
+salesreport = open('sales_report.csv', 'w')
+salesreport.write("Customer ID, Total \n")
+
+for rec in salesreader:
+    if custid == int(rec[0]):
+        total+= float(rec[3])+float(rec[4])+float(rec[5])
     else:
-        write to file - custid, total 
+        salesreport.write(f'{custid},{total:.2f}\n')
+        custid+=1
+        total=float(rec[3])+float(rec[4])+float(rec[5])
+
+salesreport.close()
     
-    custid = rec[0] #check the placement of this (tabbing)
-    total = rec[3]+rec[4]+rec[5]
     
-    
-for the last line you need a write statement outside of the for loop"""
+
+##for the last line you need a write statement outside of the for loop

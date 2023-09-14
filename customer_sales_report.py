@@ -8,7 +8,7 @@ sales = open('sales.csv', 'r')
 salesreader= csv.reader(sales)
 next(salesreader)
 
-salesreport = open('sales_report.csv', 'w')
+salesreport = open('salesreport.csv', 'w')
 salesreport.write("Customer ID, Total \n")
 
 for rec in salesreader:
